@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,12 +20,16 @@ import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NavigationComponent],
     bootstrap: [AppComponent],
     imports: [BrowserModule,
         FormsModule,
@@ -41,7 +47,12 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
                 useFactory: httpLoaderFactory,
                 deps: [HttpClient]
             }
-        })],
+        }),
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        BrowserAnimationsModule,
+        LayoutModule],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }

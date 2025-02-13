@@ -1,5 +1,13 @@
-/* Add Angular Material theme */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
 
 section {
     display: table;
@@ -31,4 +39,11 @@ section {
     display: flex;
     justify-content: center;
     width: 140px;
+}
+
+.mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
 }
