@@ -51,4 +51,6 @@ package-lock.json
 
 # e2e
 e2e/
-```
+
+# release
+release/

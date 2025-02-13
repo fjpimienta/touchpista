@@ -15,23 +15,33 @@ import { HomeModule } from './home/home.module';
 import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 // AoT requires an exported function for factories
-const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new TranslateHttpLoader(http, './assets/i18n/', '.json');
+const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
-@NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+@NgModule({
+    declarations: [AppComponent],
+    bootstrap: [AppComponent],
+    imports: [BrowserModule,
         FormsModule,
         CoreModule,
         SharedModule,
         HomeModule,
         DetailModule,
         AppRoutingModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatIconModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: httpLoaderFactory,
                 deps: [HttpClient]
             }
-        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
-export class AppModule {}
+        })],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
+export class AppModule { }
