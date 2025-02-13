@@ -24,12 +24,18 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SalesComponent } from './components/sales/sales.component';
+import { RentsComponent } from './components/rents/rents.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { CutxComponent } from './components/cutx/cutx.component';
+import { CutzComponent } from './components/cutz/cutz.component';
+import { UsersComponent } from './components/users/users.component';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
-    declarations: [AppComponent, NavigationComponent],
+    declarations: [AppComponent, NavigationComponent, SalesComponent, RentsComponent, ReportsComponent, CutxComponent, CutzComponent, UsersComponent],
     bootstrap: [AppComponent],
     imports: [BrowserModule,
         FormsModule,
