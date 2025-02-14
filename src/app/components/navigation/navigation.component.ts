@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
+import { ElectronService } from '../../providers/electron.service';
 
 @Component({
   selector: 'app-navigation',
@@ -15,7 +16,19 @@ export class NavigationComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  title = "Rentas";
+  constructor(private breakpointObserver: BreakpointObserver,
+    @Inject(ElectronService) private electronService: ElectronService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  updateTitle(title: string) {
+    this.title = title;
+  }
+
+  closeWindow() {
+    console.log('salir.');
+    this.electronService.remote.getCurrentWindow().close();
+  }
 }

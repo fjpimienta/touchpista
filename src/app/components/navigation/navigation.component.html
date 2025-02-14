@@ -1,13 +1,21 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'" [mode]="'side'" [opened]="true">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Pista de Hielo</mat-toolbar>
+    <div class="logo-container">
+      <img src="assets/img/logo_circulo.png" alt="Logo" height="100">
+    </div>
+    <label class="subtitle">Menu</label>
     <mat-nav-list>
-      <a mat-list-item routerLink="rents">Rentas</a>
-      <a mat-list-item routerLink="sales">Ventas</a>
-      <a mat-list-item routerLink="reports">Reportes</a>
-      <a mat-list-item routerLink="cutx">Corte X</a>
-      <a mat-list-item routerLink="cutz">Corte Z</a>
-      <a mat-list-item routerLink="users">Usuarios</a>
+      <a mat-list-item routerLink="rents" (click)="updateTitle('Rentas')">Rentas</a>
+      <a mat-list-item routerLink="sales" (click)="updateTitle('Ventas')">Ventas</a>
+      <a mat-list-item routerLink="reports" (click)="updateTitle('Reportes')">Reportes</a>
+      <a mat-list-item routerLink="cutx" (click)="updateTitle('Corte X')">Corte X</a>
+      <a mat-list-item routerLink="cutz" (click)="updateTitle('Corte Z')">Corte Z</a>
+      <a mat-list-item routerLink="users" (click)="updateTitle('Usuarios')">Usuarios</a>
+    </mat-nav-list>
+    <mat-nav-list class="exit to-bottom">
+      <a mat-list-item href="#" (click)="closeWindow()">Salir
+        <mat-icon>exit_to_app</mat-icon></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -15,7 +23,7 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>angular-electron</span>
+      <span>{{title}}</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

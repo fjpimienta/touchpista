@@ -30,6 +30,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { CutxComponent } from './components/cutx/cutx.component';
 import { CutzComponent } from './components/cutz/cutz.component';
 import { UsersComponent } from './components/users/users.component';
+import { ElectronService } from './providers/electron.service';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -59,6 +60,9 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         MatListModule,
         BrowserAnimationsModule,
         LayoutModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
+    providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        ElectronService
+    ]
 })
 export class AppModule { }
