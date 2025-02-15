@@ -2,11 +2,12 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'" [mode]="'side'" [opened]="true">
     <mat-toolbar>Pista de Hielo</mat-toolbar>
     <div class="logo-container">
-      <img src="assets/img/logo_circulo.png" alt="Logo" height="100">
+      <a routerLink="home" (click)="updateTitle('Home')">
+        <img src="assets/img/logo_circulo.png" alt="Logo" height="100">
+      </a>
     </div>
     <label class="subtitle">Menu</label>
     <mat-nav-list>
-      <a mat-list-item routerLink="home" (click)="updateTitle('Home')">Home</a>
       <a mat-list-item routerLink="detail" (click)="updateTitle('Detalle')">Detalle</a>
       <a mat-list-item routerLink="rents" (click)="updateTitle('Rentas')">Rentas</a>
       <a mat-list-item routerLink="sales" (click)="updateTitle('Ventas')">Ventas</a>
