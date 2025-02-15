@@ -6,6 +6,8 @@
     </div>
     <label class="subtitle">Menu</label>
     <mat-nav-list>
+      <a mat-list-item routerLink="home" (click)="updateTitle('Home')">Home</a>
+      <a mat-list-item routerLink="detail" (click)="updateTitle('Detalle')">Detalle</a>
       <a mat-list-item routerLink="rents" (click)="updateTitle('Rentas')">Rentas</a>
       <a mat-list-item routerLink="sales" (click)="updateTitle('Ventas')">Ventas</a>
       <a mat-list-item routerLink="reports" (click)="updateTitle('Reportes')">Reportes</a>

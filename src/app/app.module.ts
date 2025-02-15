@@ -24,12 +24,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { SalesComponent } from './components/sales/sales.component';
-import { RentsComponent } from './components/rents/rents.component';
-import { ReportsComponent } from './components/reports/reports.component';
-import { CutxComponent } from './components/cutx/cutx.component';
-import { CutzComponent } from './components/cutz/cutz.component';
-import { UsersComponent } from './components/users/users.component';
+import { SalesComponent } from './detail/sales/sales.component';
+import { RentsComponent } from './detail/rents/rents.component';
+import { ReportsComponent } from './detail/reports/reports.component';
+import { CutxComponent } from './detail/cutx/cutx.component';
+import { CutzComponent } from './detail/cutz/cutz.component';
+import { UsersComponent } from './detail/users/users.component';
 import { ElectronService } from './providers/electron.service';
 
 // AoT requires an exported function for factories
