@@ -28,7 +28,8 @@ export class NavigationComponent implements OnInit {
   }
 
   closeWindow() {
-    console.log('salir.');
-    this.electronService.remote.getCurrentWindow().close();
+    console.log('Cerrando aplicación...');
+    this.electronService.closeApp();
   }
+  
 }
