@@ -42,8 +42,7 @@
             ],
             "scripts": [],
             "customWebpackConfig": {
-              "path": "./angular.webpack.js",
-              "replaceDuplicatePlugins": true
+              "path": "./webpack.config.js"
             },
             "allowedCommonJsDependencies": [
               "rxjs",

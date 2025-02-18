@@ -1,26 +1,34 @@
 import { Injectable } from '@angular/core';
-import { ipcRenderer, webFrame } from 'electron';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElectronService {
-  ipcRenderer!: typeof ipcRenderer;
-  webFrame!: typeof webFrame;
+  ipcRenderer: any;
 
   constructor() {
-    if (this.isElectron()) {
-      this.ipcRenderer = window.require('electron').ipcRenderer;
-      this.webFrame = window.require('electron').webFrame;
+    if ((window as any).require) {
+      try {
+        this.ipcRenderer = (window as any).require('electron').ipcRenderer;
+        console.log('ipcRenderer cargado con éxito');
+      } catch (e) {
+        console.error('Electron no está disponible', e);
+      }
+    } else {
+      console.warn('Electron no está disponible - ejecutando en navegador');
     }
   }
 
-  isElectron(): boolean {
-    return !!(window && window.process && window.process.type);
+  resizeWindow(width: number, height: number): void {
+    console.log('Enviando evento de redimensionamiento a Electron...', { width, height });
+    if (this.ipcRenderer) {
+      this.ipcRenderer.send('resize-window', { width, height });
+    }
   }
 
-  closeApp() {
-    if (this.isElectron()) {
+
+  closeApp(): void {
+    if (this.ipcRenderer) {
       this.ipcRenderer.send('close-app');
     }
   }

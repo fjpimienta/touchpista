@@ -7,7 +7,7 @@ import { ElectronService } from '../../providers/electron.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css'] // Asegúrate de que este archivo esté correctamente referenciado
+  styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
     );
 
   title = "Rentas";
+
   constructor(private breakpointObserver: BreakpointObserver,
     @Inject(ElectronService) private electronService: ElectronService
   ) { }
@@ -31,5 +32,12 @@ export class NavigationComponent implements OnInit {
     console.log('Cerrando aplicación...');
     this.electronService.closeApp();
   }
-  
+
+  resizeWindow() {
+    console.log('Redimensionando ventana...');
+    // Verificar los valores antes de enviarlos
+    this.electronService.resizeWindow(1024, 768);  // Ajusta el tamaño que desees
+    console.log('Evento resizeWindow enviado a Electron');
+  }
+
 }

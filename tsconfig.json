@@ -1,8 +1,7 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "strict": true,
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "module": "es2022",
     "sourceMap": true,
     "declaration": false,
@@ -27,6 +26,10 @@
       "@angular/*": ["node_modules/@angular/*"]
     }
   },
+  "include": [
+    "src/**/*.ts",       // Asegurarnos de que todo el código Angular se incluya
+    "main.ts"            // Incluir el archivo main.ts de Electron explícitamente
+  ],
   "exclude": [
     "node_modules"
   ],
