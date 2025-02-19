@@ -38,6 +38,8 @@ function createWindow(): BrowserWindow {
     win = null;
   });
 
+  win.setFullScreen(true);
+
   return win;
 }
 

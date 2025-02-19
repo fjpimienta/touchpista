@@ -35,6 +35,7 @@ function createWindow() {
     win.on('closed', () => {
         win = null;
     });
+    win.setFullScreen(true);
     return win;
 }
 // Evento para manejar el redimensionamiento desde Angular
