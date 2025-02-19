@@ -29,15 +29,18 @@ export class NavigationComponent implements OnInit {
   }
 
   closeWindow() {
-    console.log('Cerrando aplicación...');
     this.electronService.closeApp();
   }
 
-  resizeWindow() {
-    console.log('Redimensionando ventana...');
-    // Verificar los valores antes de enviarlos
-    this.electronService.resizeWindow(1024, 768);  // Ajusta el tamaño que desees
-    console.log('Evento resizeWindow enviado a Electron');
+  minimizeWindow() {
+    this.electronService.minimizeWindow();
   }
 
+  maximizeWindow() {
+    this.electronService.maximizeWindow();
+  }
+
+  toggleFullScreen() {
+    this.electronService.toggleFullScreen();
+  }
 }

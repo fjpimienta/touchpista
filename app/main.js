@@ -59,6 +59,26 @@ electron_1.ipcMain.on('resize-window', (event, args) => {
 });
 try {
     electron_1.app.on('ready', () => setTimeout(createWindow, 400));
+    electron_1.ipcMain.on('minimize-window', () => {
+        if (win)
+            win.minimize();
+    });
+    electron_1.ipcMain.on('maximize-window', () => {
+        if (win)
+            win.isMaximized() ? win.unmaximize() : win.maximize();
+    });
+    electron_1.ipcMain.on('toggle-fullscreen', () => {
+        if (win)
+            win.setFullScreen(!win.isFullScreen());
+    });
+    electron_1.ipcMain.on('resize-window', (event, args) => {
+        if (win)
+            win.setSize(args.width, args.height);
+    });
+    electron_1.ipcMain.on('close-app', () => {
+        if (win)
+            win.close();
+    });
     electron_1.app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {
             electron_1.app.quit();

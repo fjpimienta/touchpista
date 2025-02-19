@@ -19,13 +19,29 @@ export class ElectronService {
     }
   }
 
+  minimizeWindow(): void {
+    if (this.ipcRenderer) {
+      this.ipcRenderer.send('minimize-window');
+    }
+  }
+
+  maximizeWindow(): void {
+    if (this.ipcRenderer) {
+      this.ipcRenderer.send('maximize-window');
+    }
+  }
+
+  toggleFullScreen(): void {
+    if (this.ipcRenderer) {
+      this.ipcRenderer.send('toggle-fullscreen');
+    }
+  }
+
   resizeWindow(width: number, height: number): void {
-    console.log('Enviando evento de redimensionamiento a Electron...', { width, height });
     if (this.ipcRenderer) {
       this.ipcRenderer.send('resize-window', { width, height });
     }
   }
-
 
   closeApp(): void {
     if (this.ipcRenderer) {

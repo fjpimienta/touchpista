@@ -71,6 +71,26 @@ ipcMain.on('resize-window', (event, args) => {
 try {
   app.on('ready', () => setTimeout(createWindow, 400));
 
+  ipcMain.on('minimize-window', () => {
+    if (win) win.minimize();
+  });
+
+  ipcMain.on('maximize-window', () => {
+    if (win) win.isMaximized() ? win.unmaximize() : win.maximize();
+  });
+
+  ipcMain.on('toggle-fullscreen', () => {
+    if (win) win.setFullScreen(!win.isFullScreen());
+  });
+
+  ipcMain.on('resize-window', (event, args) => {
+    if (win) win.setSize(args.width, args.height);
+  });
+
+  ipcMain.on('close-app', () => {
+    if (win) win.close();
+  });
+
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
       app.quit();
