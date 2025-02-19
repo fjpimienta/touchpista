@@ -1,6 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport mode="side" [opened]="true">
-    <mat-toolbar>Pista de Hielo</mat-toolbar>
+    <mat-toolbar class="menu-toolbar">
+      <span>Pista de Hielo</span>
+    </mat-toolbar>
     <div class="logo-container">
       <a routerLink="home" (click)="updateTitle('Home')">
         <img src="assets/img/logo_circulo.png" alt="Logo" height="100">
@@ -31,16 +33,16 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <span>{{title}}</span>
+      <span class="toolbar-title">{{title}}</span> <!-- Aquí agregamos el estilo para centrar el título -->
 
       <div class="window-controls">
-        <button mat-mini-fab color="primary" matTooltip="Minimizar" (click)="minimizeWindow()">
+        <button mat-mini-fab color="secondary" matTooltip="Minimizar" (click)="minimizeWindow()">
           <mat-icon>minimize</mat-icon>
         </button>
-        <button mat-mini-fab color="primary" matTooltip="Maximizar" (click)="maximizeWindow()">
+        <button mat-mini-fab color="warn" matTooltip="Maximizar" (click)="maximizeWindow()">
           <mat-icon>fullscreen_exit</mat-icon>
         </button>
-        <button mat-mini-fab color="primary" matTooltip="Pantalla completa" (click)="toggleFullScreen()">
+        <button mat-mini-fab color="accent" matTooltip="Pantalla completa" (click)="toggleFullScreen()">
           <mat-icon>fullscreen</mat-icon>
         </button>
         <button mat-mini-fab color="warn" matTooltip="Cerrar" (click)="closeWindow()">

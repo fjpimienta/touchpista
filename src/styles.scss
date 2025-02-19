@@ -1,13 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reseteo de márgenes y rellenos */
 html, body {
   margin: 0;
   padding: 0;
-
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* CAN (MUST) BE REMOVED ! Sample Global style */
+/* Estilo para el contenedor principal */
 .container {
   height: 100%;
   display: flex;
@@ -48,3 +47,52 @@ html, body {
   }
 }
 
+
+/* Asegura que los botones mini-fab de Angular Material se estilicen correctamente */
+.window-controls button {
+  padding: 8px;
+  width: 40px;  /* Asegura que los botones no sean demasiado grandes */
+  height: 40px;
+  background-color: inherit;  /* Mantiene el fondo transparente para los mini-fab */
+  border: none;
+  box-shadow: none;  /* Elimina cualquier sombra extra de los botones */
+}
+
+/* Estilos para el color de los botones de ventana */
+.mat-mini-fab[color="secondary"] {
+  background-color: #ff9800;  /* Color secundario - Naranja */
+}
+
+.mat-mini-fab[color="warn"] {
+  background-color: #f44336;  /* Color de advertencia - Rojo */
+}
+
+.mat-mini-fab[color="accent"] {
+  background-color: #e91e63;  /* Color de acento - Rosa */
+}
+
+/* Estilos adicionales para mejorar la apariencia de los botones */
+.mat-icon {
+  color: white !important; /* Asegura que los íconos sean de color blanco */
+}
+
+/* Asegura que el título de la barra de herramientas esté centrado */
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Asegura que los botones dentro de la barra de herramientas tengan un color blanco */
+.mat-toolbar button {
+  color: white;
+}
+
+/* Botón de menú con el icono */
+.mat-toolbar .mat-icon-button {
+  margin-right: 10px;
+}
+
+/* Si necesitas personalizar más los botones, puedes agregar más reglas aquí */
