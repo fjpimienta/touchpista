@@ -6,16 +6,10 @@ const fs = require("fs");
 let win = null;
 const args = process.argv.slice(1), serve = args.some(val => val === '--serve');
 function createWindow() {
-    console.log("🟢 Creando la ventana...");
-    console.log('__dirname:', __dirname);
-    const size = electron_1.screen.getPrimaryDisplay().workAreaSize;
-    // Crear la ventana principal
     win = new electron_1.BrowserWindow({
-        x: 800,
-        y: 600,
         resizable: true,
-        width: size.width,
-        height: size.height,
+        width: 1200,
+        height: 900,
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: serve,
@@ -45,16 +39,10 @@ function createWindow() {
 }
 // Evento para manejar el redimensionamiento desde Angular
 electron_1.ipcMain.on('resize-window', (event, args) => {
-    console.log('🟢 Evento resize-window recibido en main:', args);
     if (win) {
-        console.log(`🔄 Redimensionando ventana a ${args.width}x${args.height}`);
         win.setSize(args.width, args.height);
         // Confirmar el nuevo tamaño después del cambio
         const [newWidth, newHeight] = win.getSize();
-        console.log(`✅ Ventana redimensionada a ${newWidth}x${newHeight}`);
-    }
-    else {
-        console.log('❌ win es null, no se puede redimensionar');
     }
 });
 try {
