@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HomeRoutingModule } from './home/home-routing.module';
+import { DetailRoutingModule } from './detail/detail-routing.module';
 
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -24,27 +26,31 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { SalesComponent } from './detail/sales/sales.component';
-import { RentsComponent } from './detail/rents/rents.component';
-import { ReportsComponent } from './detail/reports/reports.component';
-import { CutxComponent } from './detail/cutx/cutx.component';
-import { CutzComponent } from './detail/cutz/cutz.component';
-import { UsersComponent } from './detail/users/users.component';
 import { ElectronService } from './providers/electron.service';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
-    declarations: [AppComponent, NavigationComponent, SalesComponent, RentsComponent, ReportsComponent, CutxComponent, CutzComponent, UsersComponent],
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+        LoginComponent
+    ],
     bootstrap: [AppComponent],
-    imports: [BrowserModule,
+    imports: [
+        BrowserModule,
         FormsModule,
         CoreModule,
         SharedModule,
         HomeModule,
         DetailModule,
         AppRoutingModule,
+        HomeRoutingModule,
+        DetailRoutingModule,
         MatButtonModule,
         MatDividerModule,
         MatIconModule,
@@ -59,10 +65,13 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         MatSidenavModule,
         MatListModule,
         BrowserAnimationsModule,
-        LayoutModule],
+        LayoutModule
+    ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
-        ElectronService
+        ElectronService,
+        AuthService,
+        AuthGuard
     ]
 })
 export class AppModule { }
