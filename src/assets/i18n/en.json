@@ -1,12 +1,36 @@
 {
   "PAGES": {
       "HOME": {
-          "TITLE": "App works !",
-          "GO_TO_DETAIL": "Go to Detail"
+          "TITLE": "Pista de Hielo",
+          "GO_TO_DETAIL": "Ir al Detalle"
       },
       "DETAIL": {
-        "TITLE": "Detail page !",
-        "BACK_TO_HOME": "Back to Home"
-    }
+          "TITLE": "Pagina de Detalle!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "SALES": {
+          "TITLE": "Ventas!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "RENTS": {
+          "TITLE": "Rentas!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "REPORTS": {
+          "TITLE": "Reportes!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "USERS": {
+          "TITLE": "Usuarios!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "CUTX": {
+          "TITLE": "Cortes X!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      },
+      "CUTZ": {
+          "TITLE": "Cortes Z!",
+          "BACK_TO_HOME": "Regresar al Inicio"
+      }
   }
 }
