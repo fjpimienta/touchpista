@@ -28,7 +28,7 @@
   },
   "include": [
     "src/**/*.ts",       // Asegurarnos de que todo el código Angular se incluya
-    "main.ts"            // Incluir el archivo main.ts de Electron explícitamente
+    "src/main.ts"            // Incluir el archivo main.ts de Electron explícitamente
   ],
   "exclude": [
     "node_modules"
