@@ -1,9 +1,45 @@
 /* Reseteo de márgenes y rellenos */
-html, body {
-  margin: 0;
-  padding: 0;
+html,
+body {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Hace que ocupe todo el espacio disponible */
+  height: 100vh;
+  /* Asegura que el contenido llene la altura */
+}
+
+.content {
+  flex-grow: 1;
+  /* Permite que el div crezca y ocupe el espacio disponible */
+  min-height: 100vh;
+  /* Asegura que tenga al menos el alto de la pantalla */
+  display: flex;
+  /* Si necesitas que el contenido se centre o expanda */
+  flex-direction: column;
+  /* Ajusta la disposición de los hijos */
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
 }
 
 /* Estilo para el contenedor principal */
@@ -15,8 +51,10 @@ html, body {
   justify-content: center;
 
   background: url(./assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
+  -webkit-background-size: cover;
+  /* pour anciens Chrome et Safari */
+  background-size: cover;
+  /* version standardisée */
 
   .title {
     color: white;
@@ -39,9 +77,9 @@ html, body {
       background: #fff;
       color: #ed3330 !important;
       letter-spacing: 1px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
       transition: all 0.4s ease 0s;
     }
   }
@@ -51,29 +89,36 @@ html, body {
 /* Asegura que los botones mini-fab de Angular Material se estilicen correctamente */
 .window-controls button {
   padding: 8px;
-  width: 40px;  /* Asegura que los botones no sean demasiado grandes */
+  width: 40px;
+  /* Asegura que los botones no sean demasiado grandes */
   height: 40px;
-  background-color: inherit;  /* Mantiene el fondo transparente para los mini-fab */
+  background-color: inherit;
+  /* Mantiene el fondo transparente para los mini-fab */
   border: none;
-  box-shadow: none;  /* Elimina cualquier sombra extra de los botones */
+  box-shadow: none;
+  /* Elimina cualquier sombra extra de los botones */
 }
 
 /* Estilos para el color de los botones de ventana */
 .mat-mini-fab[color="secondary"] {
-  background-color: #ff9800;  /* Color secundario - Naranja */
+  background-color: #ff9800;
+  /* Color secundario - Naranja */
 }
 
 .mat-mini-fab[color="warn"] {
-  background-color: #f44336;  /* Color de advertencia - Rojo */
+  background-color: #f44336;
+  /* Color de advertencia - Rojo */
 }
 
 .mat-mini-fab[color="accent"] {
-  background-color: #e91e63;  /* Color de acento - Rosa */
+  background-color: #e91e63;
+  /* Color de acento - Rosa */
 }
 
 /* Estilos adicionales para mejorar la apariencia de los botones */
 .mat-icon {
-  color: white !important; /* Asegura que los íconos sean de color blanco */
+  color: white !important;
+  /* Asegura que los íconos sean de color blanco */
 }
 
 /* Asegura que el título de la barra de herramientas esté centrado */

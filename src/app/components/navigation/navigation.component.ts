@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { ElectronService } from '../../providers/electron.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -16,13 +18,26 @@ export class NavigationComponent implements OnInit {
       shareReplay()
     );
 
-  title = "Rentas";
+  title = "Pista de Hielo";
+  opened = true;
 
   constructor(private breakpointObserver: BreakpointObserver,
-    @Inject(ElectronService) private electronService: ElectronService
+    private router: Router,
+    @Inject(ElectronService) private electronService: ElectronService,
+    private authService: AuthService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+  
 
   updateTitle(title: string) {
     this.title = title;

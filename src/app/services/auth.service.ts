@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly validEmail = 'test@example.com';
-  private readonly validPassword = 'password123';
-  private loggedIn = false;
+  constructor(private router: Router) {}
 
   login(email: string, password: string): boolean {
-    if (email === this.validEmail && password === this.validPassword) {
-      this.loggedIn = true;
+    if (email === 'test@example.com' && password === 'password123') {
+      localStorage.setItem('token', 'user-token'); // Simula autenticación
       return true;
     }
     return false;
   }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn;
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token'); // Retorna true si hay un token
   }
 
-  logout(): void {
-    this.loggedIn = false;
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']); // Redirige al login después de cerrar sesión
   }
 }

@@ -12,8 +12,9 @@ import { CutzComponent } from './detail/cutz/cutz.component';
 import { UsersComponent } from './detail/users/users.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: '404', component: PageNotFoundComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'rents', component: RentsComponent, canActivate: [AuthGuard] },
   { path: 'sales', component: SalesComponent, canActivate: [AuthGuard] },
@@ -21,10 +22,7 @@ const routes: Routes = [
   { path: 'cutx', component: CutxComponent, canActivate: [AuthGuard] },
   { path: 'cutz', component: CutzComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
+  { path: '**', redirectTo: '/login' } 
 ];
 
 @NgModule({

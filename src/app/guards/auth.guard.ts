@@ -6,15 +6,13 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
-    if (this.authService.isLoggedIn()) {
-      return true;
-    } else {
-      this.router.navigate(['/login']);
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']); // Si no está autenticado, ir a login
       return false;
     }
+    return true;
   }
 }

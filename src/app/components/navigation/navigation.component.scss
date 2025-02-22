@@ -1,30 +1,98 @@
 .sidenav-container {
-    height: 80%;
-  }
-  
-  .sidenav {
-    width: 200px;
-  }
-  
-  .sidenav .mat-toolbar {
-    background: inherit;
-  }
-  
-  .mat-toolbar {
-    background: #3f51b5;
-    color: gray;
-  }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
+  height: 80%; /* Mantengo tu altura original */
+}
+
+.sidenav {
+  width: 200px; /* Mantengo tu ancho original */
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar {
+  background: #3f51b5; /* Mantengo el color original */
+  color: gray;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Mantiene el menú siempre alineado */
+.mat-nav-list {
+  padding: 0 16px;
+}
+
+/* Asegura que los elementos del menú tengan espacio */
+.mat-nav-list a {
+  padding: 10px 0;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Botón "Salir" ajustado en la parte inferior */
+.exit {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ---- HEADER ---- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #3f51b5; /* Color original */
+  color: white;
+}
+
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ---- BOTONES SUPERIORES ---- */
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---- CONTENIDO PRINCIPAL ---- */
+.content {
+  flex-grow: 1;
+  min-height: calc(100vh - 64px); /* Resta la altura del toolbar si lo necesitas */
+  display: flex;
+  flex-direction: column;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  background: #3f51b5; /* Manteniendo coherencia */
+  color: white;
+}

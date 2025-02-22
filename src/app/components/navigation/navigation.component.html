@@ -1,10 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport mode="side" [opened]="true">
+  <!-- Sidebar -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="opened ? 'side' : 'over'" [opened]="opened">
     <mat-toolbar class="menu-toolbar">
       <span>Pista de Hielo</span>
     </mat-toolbar>
+
     <div class="logo-container">
-      <a routerLink="home" (click)="updateTitle('Home')">
+      <a routerLink="/home" (click)="updateTitle('Home')">
         <img src="assets/img/logo_circulo.png" alt="Logo" height="100">
       </a>
     </div>
@@ -20,22 +22,28 @@
       <a mat-list-item routerLink="/users" (click)="updateTitle('Usuarios')">Usuarios</a>
     </mat-nav-list>
 
+    <!-- Botón de salida -->
     <mat-nav-list class="exit to-bottom">
-      <a mat-list-item href="#" (click)="closeWindow()">
+      <button mat-list-item (click)="closeWindow()">
         <mat-icon>exit_to_app</mat-icon> Salir
-      </a>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
 
+  <!-- Contenido Principal -->
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <!-- HEADER -->
+    <mat-toolbar color="primary" class="header">
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-
-      <span class="toolbar-title">{{title}}</span> <!-- Aquí agregamos el estilo para centrar el título -->
-
+  
+      <span class="toolbar-title">{{title}}</span>
+  
       <div class="window-controls">
+        <button mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon> Cerrar sesión
+        </button>
         <button mat-mini-fab color="secondary" matTooltip="Minimizar" (click)="minimizeWindow()">
           <mat-icon>minimize</mat-icon>
         </button>
@@ -50,7 +58,16 @@
         </button>
       </div>
     </mat-toolbar>
-
-    <router-outlet></router-outlet>
+  
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  
+    <!-- FOOTER -->
+    <mat-toolbar color="accent" class="footer">
+      <span>&copy; 2025 Pista de Hielo - Todos los derechos reservados</span>
+    </mat-toolbar>
   </mat-sidenav-content>
+  
 </mat-sidenav-container>
