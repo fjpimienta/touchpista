@@ -8,12 +8,14 @@ import { CutxComponent } from './cutx/cutx.component';
 import { CutzComponent } from './cutz/cutz.component';
 import { UsersComponent } from './users/users.component';
 import { RentCaptureComponent } from './rents/rent-capture/rent-capture.component';
+import { SaleCaptureComponent } from './sales/sale-capture/sale-capture.component';
 
 const routes: Routes = [
   { path: 'detail', component: DetailComponent },
   { path: 'rents', component: RentsComponent },
   { path: 'rentcapture', component: RentCaptureComponent },
   { path: 'sales', component: SalesComponent },
+  { path: 'salecapture', component: SaleCaptureComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'cutx', component: CutxComponent },
   { path: 'cutz', component: CutzComponent },

@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { RentsModule } from './detail/rents/rents.module';
+import { SalesModule } from './detail/sales/sales.module';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -68,7 +69,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         MatListModule,
         BrowserAnimationsModule,
         LayoutModule,
-        RentsModule
+        RentsModule,
+        SalesModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
