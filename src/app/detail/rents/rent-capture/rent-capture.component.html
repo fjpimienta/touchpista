@@ -1,0 +1,86 @@
+<div class="rent-capture-container">
+    <form [formGroup]="rentCaptureForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="renta_cortesia">
+        <input type="hidden" formControlName="id_reg">
+        <input type="hidden" formControlName="importe_hieloprivado">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="clave_patin">Clave</label>
+                <input type="text" id="clave_patin" formControlName="clave_patin" required>
+            </div>
+            <div class="form-group">
+                <label for="id_patin">Patin</label>
+                <select id="id_patin" formControlName="id_patin" required>
+                    <option value="0">Seleccione un Patin ...</option>
+                    <!-- Opciones generadas dinámicamente -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="id_renta">Numero</label>
+                <input type="text" id="id_renta" formControlName="id_renta" readonly>
+            </div>
+            <div class="form-group">
+                <label for="id_cliente">Cliente</label>
+                <select id="id_cliente" formControlName="id_cliente" required>
+                    <option value="0">Cliente General ...</option>
+                    <option value="2">Cliente Con Patines ...</option>
+                    <!-- Opciones generadas dinámicamente -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="tipo_renta">Tipo de Renta</label>
+                <select id="tipo_renta" formControlName="tipo_renta" required>
+                    <option value="30">MEDIA HORA</option>
+                    <option value="60">1 HORA</option>
+                    <option value="CORTESIA">CORTESIA</option>
+                    <option value="INSTRUCTOR">HORA INSTRUCTOR</option>
+                    <option value="2X1">2 X 1</option>
+                    <option value="MEDIAINSTRUCTOR">MEDIA INSTRUCTOR</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipo_pago">Tipo de Pago</label>
+                <select id="tipo_pago" formControlName="tipo_pago" required>
+                    <option value="EFECTIVO">EFECTIVO</option>
+                    <option value="TARJETA">TARJETA CREDITO</option>
+                    <option value="CORTESIA">CORTESIA</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="id_instructor">Instructor</label>
+                <select id="id_instructor" formControlName="id_instructor">
+                    <option value="0">Seleccione el Instructor ...</option>
+                    <!-- Opciones generadas dinámicamente -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="motivo">Motivo</label>
+                <input type="text" id="motivo" formControlName="motivo">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="renta">Cuota Libre</label>
+                <input type="text" id="renta" formControlName="renta">
+            </div>
+            <div class="form-group">
+                <label for="tiempoF">Tiempo</label>
+                <input type="text" id="tiempoF" formControlName="tiempoF">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="txtSeguridad">Clave de Seguridad</label>
+            <input type="password" id="txtSeguridad" formControlName="txtSeguridad">
+        </div>
+        <div class="form-row">
+            <button type="submit">Submit</button>
+            <button type="button" (click)="cancelar()">Cancelar</button>
+        </div>
+    </form>
+</div>

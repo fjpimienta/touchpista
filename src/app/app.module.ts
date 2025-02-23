@@ -30,6 +30,7 @@ import { ElectronService } from './providers/electron.service';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { RentsModule } from './detail/rents/rents.module';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -66,7 +67,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         MatSidenavModule,
         MatListModule,
         BrowserAnimationsModule,
-        LayoutModule
+        LayoutModule,
+        RentsModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
