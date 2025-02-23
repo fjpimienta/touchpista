@@ -34,6 +34,8 @@ import { RentsModule } from './detail/rents/rents.module';
 import { SalesModule } from './detail/sales/sales.module';
 import { CutxsModule } from './detail/cutx/cutx.module';
 import { CutzsModule } from './detail/cutz/cutx.module';
+import { StudentsComponent } from './detail/students/students.component';
+import { TeachersComponent } from './detail/teachers/teachers.component';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,7 +44,9 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
     declarations: [
         AppComponent,
         NavigationComponent,
-        LoginComponent
+        LoginComponent,
+        StudentsComponent,
+        TeachersComponent
     ],
     bootstrap: [AppComponent],
     imports: [

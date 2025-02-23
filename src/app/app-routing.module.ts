@@ -10,6 +10,8 @@ import { ReportsComponent } from './detail/reports/reports.component';
 import { CutxComponent } from './detail/cutx/cutx.component';
 import { CutzComponent } from './detail/cutz/cutz.component';
 import { UsersComponent } from './detail/users/users.component';
+import { StudentsComponent } from './detail/students/students.component';
+import { TeachersComponent } from './detail/teachers/teachers.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'cutx', component: CutxComponent, canActivate: [AuthGuard] },
   { path: 'cutz', component: CutzComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'students', component: StudentsComponent, canActivate: [AuthGuard] },
+  { path: 'teachers', component: TeachersComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login' } 
 ];
 

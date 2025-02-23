@@ -1,36 +1,44 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "Pista de Hielo",
-          "GO_TO_DETAIL": "Ir al Detalle"
-      },
-      "DETAIL": {
-          "TITLE": "Pagina de Detalle!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "SALES": {
-          "TITLE": "Ventas!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "RENTS": {
-          "TITLE": "Rentas!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "REPORTS": {
-          "TITLE": "Reportes!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "USERS": {
-          "TITLE": "Usuarios!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "CUTX": {
-          "TITLE": "Cortes X!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      },
-      "CUTZ": {
-          "TITLE": "Cortes Z!",
-          "BACK_TO_HOME": "Regresar al Inicio"
-      }
-  }
+    "PAGES": {
+        "HOME": {
+            "TITLE": "Pista de Hielo",
+            "GO_TO_DETAIL": "Ir al Detalle"
+        },
+        "DETAIL": {
+            "TITLE": "Pagina de Detalle!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "SALES": {
+            "TITLE": "Ventas!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "RENTS": {
+            "TITLE": "Rentas!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "REPORTS": {
+            "TITLE": "Reportes!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "USERS": {
+            "TITLE": "Usuarios!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "CUTX": {
+            "TITLE": "Cortes X!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "CUTZ": {
+            "TITLE": "Cortes Z!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "STUDENTS": {
+            "TITLE": "Estudiantes!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "TEACHERS": {
+            "TITLE": "Profesores!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        }
+    }
 }

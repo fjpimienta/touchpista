@@ -31,6 +31,14 @@
         "CUTZ": {
             "TITLE": "Cortes Z!",
             "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "STUDENTS": {
+            "TITLE": "Estudiantes!",
+            "BACK_TO_HOME": "Regresar al Inicio"
+        },
+        "TEACHERS": {
+            "TITLE": "Profesores!",
+            "BACK_TO_HOME": "Regresar al Inicio"
         }
     }
 }
