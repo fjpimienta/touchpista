@@ -12,156 +12,156 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
-# Introduction
+# Introducción
 
-Bootstrap and package your project with Angular 17 and Electron 30 (Typescript + SASS + Hot Reload) for creating Desktop applications.
+Bootstrap y empaqueta tu proyecto con Angular 17 y Electron 30 (Typescript + SASS + Hot Reload) para crear aplicaciones de escritorio.
 
-Currently runs with:
+Actualmente se ejecuta con:
 
 - Angular v17.3.6
 - Electron v30.0.1
 
-With this sample, you can:
+Con este ejemplo, puedes:
 
-- Run your app in a local development environment with Electron & Hot reload
-- Run your app in a production environment
-- Execute your tests with Jest and Playwright (E2E)
-- Package your app into an executable file for Linux, Windows & Mac
+- Ejecutar tu aplicación en un entorno de desarrollo local con Electron y Hot reload
+- Ejecutar tu aplicación en un entorno de producción
+- Ejecutar tus pruebas con Jest y Playwright (E2E)
+- Empaquetar tu aplicación en un archivo ejecutable para Linux, Windows y Mac
 
-/!\ Hot reload only pertains to the renderer process. The main electron process is not able to be hot reloaded, only restarted.
+/!\ Hot reload solo se aplica al proceso de renderizado. El proceso principal de Electron no puede ser recargado en caliente, solo reiniciado.
 
-/!\ Angular CLI & Electron Builder needs Node 18.10 or later to work correctly.
+/!\ Angular CLI y Electron Builder necesitan Node 18.10 o posterior para funcionar correctamente.
 
-## Getting Started
+## Comenzando
 
-*Clone this repository locally:*
+*Clona este repositorio localmente:*
 
-``` bash
+```bash
 git clone https://github.com/maximegris/angular-electron.git
 ```
 
-*Install dependencies with npm (used by Electron renderer process):*
+*Instala las dependencias con npm (usado por el proceso de renderizado de Electron):*
 
-``` bash
+```bash
 npm install
 ```
 
-There is an issue with `yarn` and `node_modules` when the application is built by the packager. Please use `npm` as dependencies manager.
+Hay un problema con `yarn` y `node_modules` cuando la aplicación es construida por el empaquetador. Por favor, usa `npm` como gestor de dependencias.
 
-If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.
-Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
+Si deseas generar componentes de Angular con Angular-cli, **DEBES** instalar `@angular/cli` en el contexto global de npm.
+Por favor, sigue la [documentación de Angular-cli](https://github.com/angular/angular-cli) si habías instalado una versión anterior de `angular-cli`.
 
-``` bash
+```bash
 npm install -g @angular/cli
 ```
 
-*Install NodeJS dependencies with npm (used by Electron main process):*
+*Instala las dependencias de NodeJS con npm (usado por el proceso principal de Electron):*
 
-``` bash
+```bash
 cd app/
 npm install
 ```
 
-Why two package.json ? This project follow [Electron Builder two package.json structure](https://www.electron.build/tutorials/two-package-structure) in order to optimize final bundle and be still able to use Angular `ng add` feature.
+¿Por qué dos package.json? Este proyecto sigue la [estructura de dos package.json de Electron Builder](https://www.electron.build/tutorials/two-package-structure) para optimizar el paquete final y aún poder usar la característica `ng add` de Angular.
 
-## To build for development
+## Para construir para desarrollo
 
-- **in a terminal window** -> npm start
+- **en una ventana de terminal** -> npm start
 
-Voila! You can use your Angular + Electron app in a local development environment with hot reload!
+¡Voila! Puedes usar tu aplicación Angular + Electron en un entorno de desarrollo local con recarga en caliente.
 
-The application code is managed by `app/main.ts`. In this sample, the app runs with a simple Angular App (http://localhost:4200), and an Electron window. \
-The Angular component contains an example of Electron and NodeJS native lib import. \
-You can disable "Developer Tools" by commenting `win.webContents.openDevTools();` in `app/main.ts`.
+El código de la aplicación es gestionado por `app/main.ts`. En este ejemplo, la aplicación se ejecuta con una simple aplicación Angular (http://localhost:4200) y una ventana de Electron. \
+El componente Angular contiene un ejemplo de importación de librerías nativas de Electron y NodeJS. \
+Puedes deshabilitar "Developer Tools" comentando `win.webContents.openDevTools();` en `app/main.ts`.
 
-## Project structure
+## Estructura del proyecto
 
-| Folder | Description                                      |
-|--------|--------------------------------------------------|
-| app    | Electron main process folder (NodeJS)            |
-| src    | Electron renderer process folder (Web / Angular) |
+| Carpeta | Descripción                                      |
+|---------|--------------------------------------------------|
+| app     | Carpeta del proceso principal de Electron (NodeJS) |
+| src     | Carpeta del proceso de renderizado de Electron (Web / Angular) |
 
-## How to import 3rd party libraries
+## Cómo importar librerías de terceros
 
-This sample project runs in both modes (web and electron). To make this work, **you have to import your dependencies the right way**. \
+Este proyecto de ejemplo se ejecuta en ambos modos (web y electron). Para que esto funcione, **debes importar tus dependencias de la manera correcta**. \
 
-There are two kind of 3rd party libraries :
-- NodeJS's one - Uses NodeJS core module (crypto, fs, util...)
-    - I suggest you add this kind of 3rd party library in `dependencies` of both `app/package.json` and `package.json (root folder)` in order to make it work in both Electron's Main process (app folder) and Electron's Renderer process (src folder).
+Hay dos tipos de librerías de terceros:
+- Las de NodeJS - Usan el módulo core de NodeJS (crypto, fs, util...)
+    - Sugiero que agregues este tipo de librerías en `dependencies` de ambos `app/package.json` y `package.json (carpeta raíz)` para que funcione en ambos procesos de Electron (principal y de renderizado).
 
-Please check `providers/electron.service.ts` to watch how conditional import of libraries has to be done when using NodeJS / 3rd party libraries in renderer context (i.e. Angular).
+Por favor, revisa `providers/electron.service.ts` para ver cómo se debe hacer la importación condicional de librerías cuando se usan librerías de NodeJS / terceros en el contexto de renderizado (es decir, Angular).
 
-- Web's one (like bootstrap, material, tailwind...)
-    - It have to be added in `dependencies` of `package.json  (root folder)`
+- Las de Web (como bootstrap, material, tailwind...)
+    - Deben ser agregadas en `dependencies` de `package.json (carpeta raíz)`
 
-## Add a dependency with ng-add
+## Agregar una dependencia con ng-add
 
-You may encounter some difficulties with `ng-add` because this project doesn't use the defaults `@angular-builders`. \
-For example you can find [here](HOW_TO.md) how to install Angular-Material with `ng-add`.
+Puedes encontrar algunas dificultades con `ng-add` porque este proyecto no usa los `@angular-builders` por defecto. \
+Por ejemplo, puedes encontrar [aquí](HOW_TO.md) cómo instalar Angular-Material con `ng-add`.
 
-## Browser mode
+## Modo navegador
 
-Maybe you only want to execute the application in the browser with hot reload? Just run `npm run ng:serve:web`.
+¿Tal vez solo quieres ejecutar la aplicación en el navegador con recarga en caliente? Solo ejecuta `npm run ng:serve:web`.
 
-## Included Commands
+## Comandos incluidos
 
-| Command                  | Description                                                                                           |
+| Comando                  | Descripción                                                                                           |
 |--------------------------|-------------------------------------------------------------------------------------------------------|
-| `npm run ng:serve`       | Execute the app in the web browser (DEV mode)                                                         |
-| `npm run web:build`      | Build the app that can be used directly in the web browser. Your built files are in the /dist folder. |
-| `npm run electron:local` | Builds your application and start electron locally                                                    |
-| `npm run electron:build` | Builds your application and creates an app consumable based on your operating system                  |
+| `npm run ng:serve`       | Ejecuta la aplicación en el navegador web (modo DEV)                                                  |
+| `npm run web:build`      | Construye la aplicación que puede ser usada directamente en el navegador web. Tus archivos construidos están en la carpeta /dist. |
+| `npm run electron:local` | Construye tu aplicación y ejecuta electron localmente                                                 |
+| `npm run electron:build` | Construye tu aplicación y crea una aplicación consumible basada en tu sistema operativo                |
 
-**Your application is optimised. Only /dist folder and NodeJS dependencies are included in the final bundle.**
+**Tu aplicación está optimizada. Solo la carpeta /dist y las dependencias de NodeJS están incluidas en el paquete final.**
 
-## You want to use a specific lib (like rxjs) in electron main thread ?
+## ¿Quieres usar una librería específica (como rxjs) en el hilo principal de electron?
 
-YES! You can do it! Just by importing your library in npm dependencies section of `app/package.json` with `npm install --save XXXXX`. \
-It will be loaded by electron during build phase and added to your final bundle. \
-Then use your library by importing it in `app/main.ts` file. Quite simple, isn't it?
+¡SÍ! Puedes hacerlo. Solo importa tu librería en la sección de dependencias de `app/package.json` con `npm install --save XXXXX`. \
+Será cargada por electron durante la fase de construcción y agregada a tu paquete final. \
+Luego usa tu librería importándola en el archivo `app/main.ts`. Bastante simple, ¿no?
 
-## E2E Testing
+## Pruebas E2E
 
-E2E Test scripts can be found in `e2e` folder.
+Los scripts de prueba E2E se pueden encontrar en la carpeta `e2e`.
 
-| Command       | Description               |
+| Comando       | Descripción               |
 |---------------|---------------------------|
-| `npm run e2e` | Execute end to end tests  |
+| `npm run e2e` | Ejecuta pruebas end to end |
 
-Note: To make it work behind a proxy, you can add this proxy exception in your terminal  
+Nota: Para que funcione detrás de un proxy, puedes agregar esta excepción de proxy en tu terminal  
 `export {no_proxy,NO_PROXY}="127.0.0.1,localhost"`
 
-## Debug with VsCode
+## Depuración con VsCode
 
-[VsCode](https://code.visualstudio.com/) debug configuration is available! In order to use it, you need the extension [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+¡La configuración de depuración de [VsCode](https://code.visualstudio.com/) está disponible! Para usarla, necesitas la extensión [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
 
-Then set some breakpoints in your application's source code.
+Luego establece algunos puntos de interrupción en el código fuente de tu aplicación.
 
-Finally from VsCode press **Ctrl+Shift+D** and select **Application Debug** and press **F5**.
+Finalmente, desde VsCode presiona **Ctrl+Shift+D** y selecciona **Application Debug** y presiona **F5**.
 
-Please note that Hot reload is only available in Renderer process.
+Ten en cuenta que la recarga en caliente solo está disponible en el proceso de renderizado.
 
-## Want to use Angular Material ? Ngx-Bootstrap ?
+## ¿Quieres usar Angular Material? ¿Ngx-Bootstrap?
 
-Please refer to [HOW_TO file](./HOW_TO.md)
+Por favor, consulta el [archivo HOW_TO](./HOW_TO.md)
 
-## Branch & Packages version
+## Rama y versión de paquetes
 
-- Angular 4 & Electron 1 : Branch [angular4](https://github.com/maximegris/angular-electron/tree/angular4)
-- Angular 5 & Electron 1 : Branch [angular5](https://github.com/maximegris/angular-electron/tree/angular5)
-- Angular 6 & Electron 3 : Branch [angular6](https://github.com/maximegris/angular-electron/tree/angular6)
-- Angular 7 & Electron 3 : Branch [angular7](https://github.com/maximegris/angular-electron/tree/angular7)
-- Angular 8 & Electron 7 : Branch [angular8](https://github.com/maximegris/angular-electron/tree/angular8)
-- Angular 9 & Electron 7 : Branch [angular9](https://github.com/maximegris/angular-electron/tree/angular9)
-- Angular 10 & Electron 9 : Branch [angular10](https://github.com/maximegris/angular-electron/tree/angular10)
-- Angular 11 & Electron 12 : Branch [angular11](https://github.com/maximegris/angular-electron/tree/angular11)
-- Angular 12 & Electron 16 : Branch [angular12](https://github.com/maximegris/angular-electron/tree/angular12)
-- Angular 13 & Electron 18 : Branch [angular13](https://github.com/maximegris/angular-electron/tree/angular13)
-- Angular 14 & Electron 21 : Branch [angular14](https://github.com/maximegris/angular-electron/tree/angular14)
-- Angular 15 & Electron 24 : Branch [angular15](https://github.com/maximegris/angular-electron/tree/angular15)
-- Angular 16 & Electron 25 : Branch [angular16](https://github.com/maximegris/angular-electron/tree/angular16)
+- Angular 4 & Electron 1 : Rama [angular4](https://github.com/maximegris/angular-electron/tree/angular4)
+- Angular 5 & Electron 1 : Rama [angular5](https://github.com/maximegris/angular-electron/tree/angular5)
+- Angular 6 & Electron 3 : Rama [angular6](https://github.com/maximegris/angular-electron/tree/angular6)
+- Angular 7 & Electron 3 : Rama [angular7](https://github.com/maximegris/angular-electron/tree/angular7)
+- Angular 8 & Electron 7 : Rama [angular8](https://github.com/maximegris/angular-electron/tree/angular8)
+- Angular 9 & Electron 7 : Rama [angular9](https://github.com/maximegris/angular-electron/tree/angular9)
+- Angular 10 & Electron 9 : Rama [angular10](https://github.com/maximegris/angular-electron/tree/angular10)
+- Angular 11 & Electron 12 : Rama [angular11](https://github.com/maximegris/angular-electron/tree/angular11)
+- Angular 12 & Electron 16 : Rama [angular12](https://github.com/maximegris/angular-electron/tree/angular12)
+- Angular 13 & Electron 18 : Rama [angular13](https://github.com/maximegris/angular-electron/tree/angular13)
+- Angular 14 & Electron 21 : Rama [angular14](https://github.com/maximegris/angular-electron/tree/angular14)
+- Angular 15 & Electron 24 : Rama [angular15](https://github.com/maximegris/angular-electron/tree/angular15)
+- Angular 16 & Electron 25 : Rama [angular16](https://github.com/maximegris/angular-electron/tree/angular16)
 - Angular 17 & Electron 30 : (main)
-- 
+
 [maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: https://github.com/maximegris/angular-electron/blob/main/LICENSE.md
