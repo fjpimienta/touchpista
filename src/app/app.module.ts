@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -33,6 +33,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RentsModule } from './detail/rents/rents.module';
 import { SalesModule } from './detail/sales/sales.module';
 import { CutxsModule } from './detail/cutx/cutx.module';
+import { CutzsModule } from './detail/cutz/cutx.module';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +49,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         BrowserModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         CoreModule,
         SharedModule,
         HomeModule,
@@ -72,7 +74,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         LayoutModule,
         RentsModule,
         SalesModule,
-        CutxsModule
+        CutxsModule,
+        CutzsModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),

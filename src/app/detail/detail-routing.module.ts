@@ -4,11 +4,11 @@ import { DetailComponent } from './detail.component';
 import { RentsComponent } from './rents/rents.component';
 import { SalesComponent } from './sales/sales.component';
 import { ReportsComponent } from './reports/reports.component';
-import { CutzComponent } from './cutz/cutz.component';
 import { UsersComponent } from './users/users.component';
 import { RentCaptureComponent } from './rents/rent-capture/rent-capture.component';
 import { SaleCaptureComponent } from './sales/sale-capture/sale-capture.component';
 import { CutxCaptureComponent } from './cutx/cutx-capture/cutx-capture.component';
+import { CutzCaptureComponent } from './cutz/cutz-capture/cutz-capture.component';
 
 const routes: Routes = [
   { path: 'detail', component: DetailComponent },
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'salecapture', component: SaleCaptureComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'cutxcapture', component: CutxCaptureComponent },
-  { path: 'cutz', component: CutzComponent },
+  { path: 'cutzcapture', component: CutzCaptureComponent },
   { path: 'users', component: UsersComponent }
 ];
 
