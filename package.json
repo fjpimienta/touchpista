@@ -100,7 +100,7 @@
     "webdriver-manager": "12.1.9"
   },
   "engines": {
-    "node": ">= 16.14.0 || >= 18.10.0"
+    "node": ">= 22.14.0"
   },
   "browserslist": [
     "chrome 114"
