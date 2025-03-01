@@ -5,7 +5,6 @@ import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
@@ -19,13 +18,7 @@ import { HomeModule } from './home/home.module';
 import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 import { ElectronService } from './providers/electron.service';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
@@ -36,6 +29,7 @@ import { CutxsModule } from './detail/cutx/cutx.module';
 import { CutzsModule } from './detail/cutz/cutx.module';
 import { StudentsComponent } from './detail/students/students.component';
 import { TeachersComponent } from './detail/teachers/teachers.component';
+import { MaterialModule } from './shared/material.module';
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -61,9 +55,6 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         AppRoutingModule,
         HomeRoutingModule,
         DetailRoutingModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatIconModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -71,15 +62,12 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
                 deps: [HttpClient]
             }
         }),
-        MatToolbarModule,
-        MatSidenavModule,
-        MatListModule,
         BrowserAnimationsModule,
-        LayoutModule,
         RentsModule,
         SalesModule,
         CutxsModule,
-        CutzsModule
+        CutzsModule,
+        MaterialModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
